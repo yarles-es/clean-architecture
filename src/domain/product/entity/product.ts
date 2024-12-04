@@ -1,3 +1,5 @@
+import { DomainValidationError } from '../../errors/domain_validation_error';
+
 export type ProductProps = {
   id?: number;
   uuid?: string;
@@ -23,11 +25,11 @@ export class Product {
   }
 
   private validatePrice(price: number) {
-    if (price <= 0) throw new Error('The price of the product must be higher than 0');
+    if (price <= 0) throw new DomainValidationError('The price of the product must be higher than 0');
   }
 
   private validateName(name: string) {
-    if (name.length < 3) throw new Error('Name must be at least 3 characters long');
+    if (name.length < 3) throw new DomainValidationError('Name must be at least 3 characters long');
   }
 
   public get id() {
