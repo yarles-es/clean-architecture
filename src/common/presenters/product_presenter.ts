@@ -7,4 +7,13 @@ export class ProductPresenter {
       id: product.id,
     };
   }
+
+  public static toGetProductOutputDto(product: Product) {
+    return {
+      id: product.id,
+      uuid: product.uuid,
+      name: product.name,
+      price: product.price,
+    };
+  }
 }
