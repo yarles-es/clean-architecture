@@ -1,4 +1,4 @@
-import { User } from '../entity/user';
+import { User } from '../../product/entity/user';
 
 export interface UserGateway {
   saveUser(user: User): Promise<void>;
