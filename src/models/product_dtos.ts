@@ -25,3 +25,10 @@ export type GetProductByIdInputDto = {
 export type GetProductByNameInputDto = {
   name: string;
 };
+
+export type UpdateProductInputDto = Partial<{
+  name: string;
+  price: number;
+}>;
+
+export type UpdateProductoutputDto = void;
