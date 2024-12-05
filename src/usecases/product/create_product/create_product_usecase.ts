@@ -19,8 +19,8 @@ export class CreateProductUsecase implements Usecase<CreateproductInputDto, Crea
 
     const product = Product.createNew(name, price);
 
-    await this.productGateway.saveProduct(product);
+    const savedProduct = await this.productGateway.saveProduct(product);
 
-    return ProductPresenter.toCreateProductOutputDto(product);
+    return ProductPresenter.toCreateProductOutputDto(savedProduct);
   }
 }
