@@ -1,8 +1,9 @@
+import { randomUUID } from 'crypto';
 import { DomainValidationError } from '../../errors/domain_validation_error';
 
 export type ProductProps = {
   id?: number;
-  uuid?: string;
+  uuid: string;
   name: string;
   price: number;
 };
@@ -13,14 +14,18 @@ export class Product {
     this.validatePrice(this.props.price);
   }
 
-  public static create(name: string, price: number) {
+  public static createNew(name: string, price: number) {
     return new Product({
       name,
       price,
+      uuid: randomUUID(),
     });
   }
 
-  public static with(props: ProductProps) {
+  public static fromData(props: ProductProps) {
+    if (props.id === undefined) {
+      throw new DomainValidationError('Product ID must be provided');
+    }
     return new Product(props);
   }
 
