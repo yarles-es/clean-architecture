@@ -23,6 +23,7 @@ model User {
   name          String
   email         String
   role          String
+  password      String
   shoppingCarts ShoppingCart[]
 
   @@map("users")
