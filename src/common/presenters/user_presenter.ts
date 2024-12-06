@@ -17,6 +17,7 @@ export class UserPresenter {
 
     return {
       id: user.id,
+      uuid: user.uuid,
       email: user.email,
       name: user.name,
       role: user.role,

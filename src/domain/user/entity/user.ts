@@ -1,19 +1,22 @@
 import { randomUUID } from 'crypto';
 import { DomainValidationError } from '../../errors/domain_validation_error';
 
+const roleTags = { ADMIN: 'ADMIN', USER: 'USER' } as const;
+type Role = (typeof roleTags)[keyof typeof roleTags];
+
 export type UserProps = {
   id?: number;
   uuid: string;
   name: string;
   email: string;
   password: string;
-  role: 'admin' | 'client';
+  role: Role;
 };
 
 export class User {
   private constructor(private props: UserProps) {}
 
-  public static createNew(name: string, email: string, password: string, role: 'admin' | 'client') {
+  public static createNew(name: string, email: string, password: string, role: Role) {
     return new User({
       name,
       email,
@@ -66,7 +69,7 @@ export class User {
     return new User({ ...this.props, password: newPassword });
   }
 
-  public withUpdatedRole(newRole: 'admin' | 'client'): User {
+  public withUpdatedRole(newRole: Role): User {
     return new User({ ...this.props, role: newRole });
   }
 }

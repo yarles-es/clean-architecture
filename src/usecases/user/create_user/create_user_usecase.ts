@@ -1,14 +1,15 @@
-import { ConflictError } from '../../../common/errors/conflict_error';
 import { UserPresenter } from '../../../common/presenters/user_presenter';
 import { User } from '../../../domain/user/entity/user';
 import { UserGateway } from '../../../domain/user/gateway/user_gateway';
+import { Role, roleTags } from '../../../models/user_dtos';
+
 import { Usecase } from '../../usecase';
 
 export type CreateUserInputDto = {
   email: string;
   password: string;
   name: string;
-  role?: 'admin' | 'client';
+  role?: Role;
 };
 
 export type CreateUserOutputDto = {
@@ -26,12 +27,8 @@ export class CreateUserUsecase implements Usecase<CreateUserInputDto, CreateUser
     email,
     password,
     name,
-    role = 'client',
+    role = roleTags.USER,
   }: CreateUserInputDto): Promise<CreateUserOutputDto> {
-    const existingUser = await this.userGateway.getUserByEmail(email);
-
-    if (existingUser) throw new ConflictError('User already exists');
-
     const user = User.createNew(email, password, name, role);
 
     const savedUser = await this.userGateway.saveUser(user);

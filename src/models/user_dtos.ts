@@ -1,9 +1,12 @@
+export const roleTags = { ADMIN: 'ADMIN', USER: 'USER' } as const;
+export type Role = (typeof roleTags)[keyof typeof roleTags];
+
 export type GetUserOutputDto = {
   id: number;
   uuid: string;
   name: string;
   email: string;
-  role: 'admin' | 'client';
+  role: Role;
 };
 
 export type GetAllUserInputDto = void;
