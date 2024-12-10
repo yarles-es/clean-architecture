@@ -2,6 +2,7 @@ import { PrismaClient } from '@prisma/client';
 import { NotFoundError } from '../../../common/errors/not_found_error';
 import { Product } from '../../../domain/product/entity/product';
 import { ProductGateway } from '../../../domain/product/gateway/product_gateway';
+import { ProductMapper } from '../../mappers/product_mapper';
 
 export class ProductRepositoryPrisma implements ProductGateway {
   private constructor(private readonly prismaClient: PrismaClient) {}
@@ -11,11 +12,7 @@ export class ProductRepositoryPrisma implements ProductGateway {
   }
 
   async saveProduct(product: Product): Promise<Product> {
-    const data = {
-      uuid: product.uuid,
-      name: product.name,
-      price: product.price,
-    };
+    const data = ProductMapper.toPrisma(product);
 
     const savedProduct = await this.prismaClient.product.create({ data });
     return Product.fromData({
@@ -68,10 +65,7 @@ export class ProductRepositoryPrisma implements ProductGateway {
   }
 
   async updateProduct(product: Partial<Product>): Promise<void> {
-    const dataToUpdate = {
-      ...(product.name && { name: product.name }),
-      ...(product.price && { price: product.price }),
-    };
+    const dataToUpdate = ProductMapper.updatePrisma(product);
 
     try {
       await this.prismaClient.product.update({
