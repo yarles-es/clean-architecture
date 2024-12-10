@@ -1,12 +1,7 @@
 import { ProductGateway } from '../../../domain/product/gateway/product_gateway';
 import { UserGateway } from '../../../domain/user/gateway/user_gateway';
+import { DeleteProductInputDto, DeleteProductOutputDto } from '../../../models/product/delete_product_dto';
 import { Usecase } from '../../usecase';
-
-export type DeleteProductInputDto = {
-  id: number;
-};
-
-export type DeleteProductOutputDto = void;
 
 export class DeleteProductUseCase implements Usecase<DeleteProductInputDto, DeleteProductOutputDto> {
   constructor(private readonly productGateway: ProductGateway, private readonly userGateway: UserGateway) {}

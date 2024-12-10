@@ -1,6 +1,7 @@
 import { User } from '../../domain/user/entity/user';
-import { GetAllusersOutputDto, GetUserOutputDto } from '../../models/user_dtos';
-import { CreateUserOutputDto } from '../../usecases/user/create_user/create_user_usecase';
+import { CreateUserOutputDto } from '../../models/user/create_user_dto';
+import { GetAllusersOutputDto, GetUserOutputDto } from '../../models/user/get_user_dto';
+
 import { BadRequestError } from '../errors/bad_request_error';
 
 export class UserPresenter {

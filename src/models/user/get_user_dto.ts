@@ -1,5 +1,4 @@
-export const roleTags = { ADMIN: 'ADMIN', USER: 'USER' } as const;
-export type Role = (typeof roleTags)[keyof typeof roleTags];
+import { Role } from './create_user_dto';
 
 export type GetUserOutputDto = {
   id: number;
@@ -9,6 +8,10 @@ export type GetUserOutputDto = {
   role: Role;
 };
 
+export type GetUserByEmailInputDto = {
+  email: string;
+};
+
 export type GetAllUserInputDto = void;
 
 export type GetAllusersOutputDto = GetUserOutputDto[];
@@ -16,5 +19,3 @@ export type GetAllusersOutputDto = GetUserOutputDto[];
 export type GetUserByIdInputDto = {
   id: number;
 };
-
-export type UpdateUserInputDto = Partial<GetUserOutputDto & { password: string }>;

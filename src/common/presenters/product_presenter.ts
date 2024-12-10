@@ -1,5 +1,5 @@
 import { Product } from '../../domain/product/entity/product';
-import { CreateproductOutputDto, GetProductOutputDto } from '../../models/product_dtos';
+import { CreateproductOutputDto, GetProductOutputDto } from '../../models/product/product_usecase_dtos';
 import { BadRequestError } from '../errors/bad_request_error';
 
 export class ProductPresenter {

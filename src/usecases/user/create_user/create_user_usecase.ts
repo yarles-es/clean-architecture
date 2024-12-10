@@ -1,21 +1,10 @@
 import { UserPresenter } from '../../../common/presenters/user_presenter';
 import { User } from '../../../domain/user/entity/user';
 import { UserGateway } from '../../../domain/user/gateway/user_gateway';
-import { Role, roleTags } from '../../../models/user_dtos';
+import { CreateUserInputDto, CreateUserOutputDto, roleTags } from '../../../models/user/create_user_dto';
 import { EncryptorService } from '../../../services/encryptor_service';
 
 import { Usecase } from '../../usecase';
-
-export type CreateUserInputDto = {
-  email: string;
-  password: string;
-  name: string;
-  role?: Role;
-};
-
-export type CreateUserOutputDto = {
-  id: number;
-};
 
 export class CreateUserUsecase implements Usecase<CreateUserInputDto, CreateUserOutputDto> {
   constructor(

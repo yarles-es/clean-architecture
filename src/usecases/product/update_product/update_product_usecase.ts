@@ -1,5 +1,5 @@
 import { ProductGateway } from '../../../domain/product/gateway/product_gateway';
-import { UpdateProductInputDto, UpdateProductoutputDto } from '../../../models/product_dtos';
+import { UpdateProductInputDto, UpdateProductoutputDto } from '../../../models/product/update_product_dto';
 import { Usecase } from '../../usecase';
 
 export class UpdateProductUsecase implements Usecase<UpdateProductInputDto, UpdateProductoutputDto> {
