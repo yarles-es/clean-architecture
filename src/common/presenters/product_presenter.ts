@@ -1,5 +1,7 @@
 import { Product } from '../../domain/product/entity/product';
-import { CreateproductOutputDto, GetProductOutputDto } from '../../models/product/product_usecase_dtos';
+import { CreateproductOutputDto } from '../../models/product/create_product_dto';
+import { GetProductOutputDto } from '../../models/product/get_product_dto';
+
 import { BadRequestError } from '../errors/bad_request_error';
 
 export class ProductPresenter {
