@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client';
 import { NotFoundError } from '../../../common/errors/not_found_error';
 import { User } from '../../../domain/user/entity/user';
 import { UserGateway } from '../../../domain/user/gateway/user_gateway';
-import { Role } from '../../../models/user_dtos';
+import { Role } from '../../../dtos/user/create_user_dto';
 
 export class UserRepositoryPrisma implements UserGateway {
   private constructor(private readonly prismaClient: PrismaClient) {}

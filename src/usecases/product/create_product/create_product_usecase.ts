@@ -2,7 +2,7 @@ import { ConflictError } from '../../../common/errors/conflict_error';
 import { ProductPresenter } from '../../../common/presenters/product_presenter';
 import { Product } from '../../../domain/product/entity/product';
 import { ProductGateway } from '../../../domain/product/gateway/product_gateway';
-import { CreateproductInputDto, CreateproductOutputDto } from '../../../models/product/create_product_dto';
+import { CreateproductInputDto, CreateproductOutputDto } from '../../../dtos/product/create_product_dto';
 import { Usecase } from '../../usecase';
 
 export class CreateProductUsecase implements Usecase<CreateproductInputDto, CreateproductOutputDto> {

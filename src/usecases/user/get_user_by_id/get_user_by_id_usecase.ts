@@ -1,6 +1,6 @@
 import { UserPresenter } from '../../../common/presenters/user_presenter';
 import { UserGateway } from '../../../domain/user/gateway/user_gateway';
-import { GetUserByIdInputDto, GetUserOutputDto } from '../../../models/user/get_user_dto';
+import { GetUserByIdInputDto, GetUserOutputDto } from '../../../dtos/user/get_user_dto';
 import { Usecase } from '../../usecase';
 
 export class GetUserByIdUsecase implements Usecase<GetUserByIdInputDto, GetUserOutputDto> {

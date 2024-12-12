@@ -1,7 +1,7 @@
 import { UserPresenter } from '../../../common/presenters/user_presenter';
 import { User } from '../../../domain/user/entity/user';
 import { UserGateway } from '../../../domain/user/gateway/user_gateway';
-import { CreateUserInputDto, CreateUserOutputDto, roleTags } from '../../../models/user/create_user_dto';
+import { CreateUserInputDto, CreateUserOutputDto, roleTags } from '../../../dtos/user/create_user_dto';
 import { EncryptorService } from '../../../services/encryptor_service';
 
 import { Usecase } from '../../usecase';

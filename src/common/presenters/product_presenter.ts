@@ -1,6 +1,6 @@
 import { Product } from '../../domain/product/entity/product';
-import { CreateproductOutputDto } from '../../models/product/create_product_dto';
-import { GetProductOutputDto } from '../../models/product/get_product_dto';
+import { CreateproductOutputDto } from '../../dtos/product/create_product_dto';
+import { GetProductOutputDto } from '../../dtos/product/get_product_dto';
 
 import { BadRequestError } from '../errors/bad_request_error';
 

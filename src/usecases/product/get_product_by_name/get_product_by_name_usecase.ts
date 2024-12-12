@@ -1,6 +1,6 @@
 import { ProductPresenter } from '../../../common/presenters/product_presenter';
 import { ProductGateway } from '../../../domain/product/gateway/product_gateway';
-import { GetProductByNameInputDto, GetProductOutputDto } from '../../../models/product/get_product_dto';
+import { GetProductByNameInputDto, GetProductOutputDto } from '../../../dtos/product/get_product_dto';
 import { Usecase } from '../../usecase';
 
 export class GetProductByNameUseCase implements Usecase<GetProductByNameInputDto, GetProductOutputDto> {

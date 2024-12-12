@@ -1,6 +1,6 @@
 import { User } from '../../domain/user/entity/user';
-import { CreateUserOutputDto } from '../../models/user/create_user_dto';
-import { GetAllusersOutputDto, GetUserOutputDto } from '../../models/user/get_user_dto';
+import { CreateUserOutputDto } from '../../dtos/user/create_user_dto';
+import { GetAllusersOutputDto, GetUserOutputDto } from '../../dtos/user/get_user_dto';
 
 import { BadRequestError } from '../errors/bad_request_error';
 

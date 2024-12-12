@@ -1,5 +1,5 @@
 import { ProductGateway } from '../../../domain/product/gateway/product_gateway';
-import { DeleteProductInputDto, DeleteProductOutputDto } from '../../../models/product/delete_product_dto';
+import { DeleteProductInputDto, DeleteProductOutputDto } from '../../../dtos/product/delete_product_dto';
 import { Usecase } from '../../usecase';
 
 export class DeleteProductUseCase implements Usecase<DeleteProductInputDto, DeleteProductOutputDto> {
