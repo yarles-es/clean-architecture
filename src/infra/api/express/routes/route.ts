@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from 'express';
+import { NextFunction, Request, RequestHandler, Response } from 'express';
 
 export type HttpMethod = 'get' | 'post' | 'put' | 'delete';
 
@@ -9,9 +9,34 @@ export const HttpMethod = {
   DELETE: 'delete' as HttpMethod,
 } as const;
 
-export interface Route {
-  getHandler(): (req: Request, res: Response, next: NextFunction) => Promise<void>;
+interface Route {
+  getHandler(): RequestHandler;
   getPath(): string;
   getMethod(): HttpMethod;
   getMiddlewares(): Array<(req: Request, res: Response, next: NextFunction) => void>;
+}
+
+export abstract class BaseRoute implements Route {
+  constructor(
+    protected readonly path: string,
+    protected readonly method: HttpMethod,
+    protected readonly handler: RequestHandler,
+    protected readonly middlewares: RequestHandler[] = [],
+  ) {}
+
+  public getPath(): string {
+    return this.path;
+  }
+
+  public getMethod(): HttpMethod {
+    return this.method;
+  }
+
+  public getHandler(): RequestHandler {
+    return this.handler;
+  }
+
+  public getMiddlewares(): RequestHandler[] {
+    return this.middlewares;
+  }
 }

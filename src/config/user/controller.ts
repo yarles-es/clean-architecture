@@ -1,4 +1,4 @@
-import { UserController } from '../../interfaces/http/user_controller';
+import { UserController } from '../../controllers/http/user_controller';
 import { createUserUsecases } from './usecases';
 
 export const createUserController = (useCases: ReturnType<typeof createUserUsecases>) => ({

@@ -8,7 +8,7 @@ export class ProductController {
     try {
       const { name, price } = req.body;
       const product = await this.useCases.createProductUsecase.execute({ name, price });
-      res.status(201).json(product);
+      res.status(201).json(product).send();
     } catch (error) {
       next(error);
     }
