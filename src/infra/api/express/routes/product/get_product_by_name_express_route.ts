@@ -2,15 +2,15 @@ import { RequestHandler } from 'express';
 import { ProductController } from '../../../../../controllers/http/product_controller';
 import { BaseRoute, HttpMethod } from '../route';
 
-export class CreateProductRoute extends BaseRoute {
+export class GetProductByNameRoute extends BaseRoute {
   private constructor(controller: ProductController, middlewares: RequestHandler[] = []) {
-    super('/products', HttpMethod.POST, controller.createProduct.bind(controller), middlewares);
+    super('/products/:name', HttpMethod.GET, controller.getProductByName.bind(controller), middlewares);
   }
 
   public static create(
     controller: ProductController,
     middlewares: RequestHandler[] = [],
-  ): CreateProductRoute {
-    return new CreateProductRoute(controller, middlewares);
+  ): GetProductByNameRoute {
+    return new GetProductByNameRoute(controller, middlewares);
   }
 }
