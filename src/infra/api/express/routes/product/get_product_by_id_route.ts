@@ -4,7 +4,7 @@ import { BaseRoute, HttpMethod } from '../route';
 
 export class GetProductByIdRoute extends BaseRoute {
   private constructor(controller: ProductController, middlewares: RequestHandler[] = []) {
-    super('/products/:id', HttpMethod.GET, controller.getProductById.bind(controller), middlewares);
+    super('/products/by-id/:id', HttpMethod.GET, controller.getProductById.bind(controller), middlewares);
   }
 
   public static create(

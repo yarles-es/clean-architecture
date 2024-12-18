@@ -38,10 +38,10 @@ export class ProductRepositoryPrisma implements ProductGateway {
     return productsData;
   }
 
-  async getProductById(id: number): Promise<Product> {
+  async getProductById(id: number): Promise<Product | null> {
     const product = await this.prismaClient.product.findUnique({ where: { id } });
 
-    if (!product) throw new NotFoundError('Product not found');
+    if (!product) return null;
 
     return Product.fromData({
       id: product.id,
@@ -51,10 +51,10 @@ export class ProductRepositoryPrisma implements ProductGateway {
     });
   }
 
-  async getProductByName(name: string): Promise<Product> {
+  async getProductByName(name: string): Promise<Product | null> {
     const product = await this.prismaClient.product.findFirst({ where: { name } });
 
-    if (!product) throw new NotFoundError('Product not found');
+    if (!product) return null;
 
     return Product.fromData({
       id: product.id,

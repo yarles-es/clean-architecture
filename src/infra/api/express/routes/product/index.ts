@@ -16,8 +16,7 @@ export const registerProductRoutes = (router: Router, controller: ProductControl
     GetProductByIdRoute.create(controller),
     GetProductByNameRoute.create(controller),
   ];
-
-  routes.forEach((route) =>
-    router[route.getMethod()](route.getPath(), ...route.getMiddlewares(), route.getHandler()),
-  );
+  routes.forEach((route) => {
+    router[route.getMethod()](route.getPath(), ...route.getMiddlewares(), route.getHandler());
+  });
 };
